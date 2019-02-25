@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="5" name="Test(failed)" parallel="tests">
+    <parameter name="Node" value="http://192.168.43.144:4444/wd/hub"/>
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="monday18Feb.DemoA">
+        <methods>
+          <include name="testA" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- monday18Feb.DemoA -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
