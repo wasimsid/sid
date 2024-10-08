@@ -1,0 +1,28 @@
+---
+- name: Trigger Azure DevOps Pipeline
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Trigger Azure DevOps pipeline via REST API
+      uri:
+        url: "https://dev.azure.com/NousMigrationFactory/POC/_apis/pipelines/14/                                                                             runs?api-version=6.0-preview.1"
+        method: POST
+        headers:
+          Content-Type: "application/json"
+          Authorization: "Basic {{ 'shaikwasima@nousinfo.com:zwntgpjjy5klr6jupvt                                                                             soawmmd3xpr7ggr5ngw24hz6neibdxwra' | b64encode }}"
+        body: |
+          {
+            "resources": {
+              "repositories": {
+                "self": {
+                  "refName": "refs/heads/master"
+                }
+              }
+            }
+          }
+        body_format: json
+      register: result
+
+    - name: Display Result
+      debug:
+        var: result
