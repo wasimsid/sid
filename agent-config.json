@@ -1,0 +1,8 @@
+{
+  "agentDir": "C:\\agent",
+  "agentZipUrl": "https://vstsagentpackage.azureedge.net/agent/4.254.0/vsts-agent-win-x64-4.254.0.zip",
+  "adoUrl": "https://dev.azure.com/AgFirstPMO",
+  "adoToken": "REPLACE_WITH_YOUR_PAT",
+  "agentPool": "Default",
+  "agentName": "OnPremAgent-1921682739"
+}
