@@ -40,8 +40,20 @@ Start-Process -FilePath "$agentDir\config.cmd" -ArgumentList @(
     "--runAsService"
 ) -Wait -NoNewWindow
 
-# Step 5: Start the agent service
-Write-Host "Starting the Azure DevOps agent as a service"
-Start-Service "vstsagent.*"
 
-Write-Host "Azure DevOps agent installation and configuration complete."
+# Find the agent service
+$service = Get-Service | Where-Object { $_.Name -like "vstsagent.*" }
+
+if ($service) {
+    Write-Host "Found service: $($service.Name). Starting it..."
+    Start-Service -Name $service.Name
+} else {
+    Write-Host "Azure DevOps agent service not found. Check if config step succeeded."
+}
+
+
+# Step 5: Start the agent service
+#Write-Host "Starting the Azure DevOps agent as a service"
+#Start-Service "vstsagent.*"
+
+#Write-Host "Azure DevOps agent installation and configuration complete."
